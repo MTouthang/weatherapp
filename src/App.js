@@ -24,6 +24,24 @@ function App() {
     setTemp(celsius);
   };
 
+  const day = () => {
+    const days = [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Sat",
+    ];
+    const date = new Date();
+    return days[date.getDay() - 1];
+  };
+
+  const date = () => {
+    const date = new Date().toLocaleString();
+    return date;
+  };
+
   const fetchWeather = async (name) => {
     try {
       const res = await axios.get(`${apiEndpoint}${name}`);
@@ -38,8 +56,6 @@ function App() {
       console.log(error);
     }
   };
-
-  console.log(temp);
 
   return (
     <>
@@ -98,7 +114,13 @@ function App() {
                 {`${temp}\u00B0C `} {mainWether}
               </h1>
               <p className="lg:w-2/3 mx-auto leading-relaxed text-base">
-                tue 24. jan
+                {day()}, {cityName}
+              </p>
+              <p className="lg:w-2/3 mx-auto leading-relaxed text-base">
+                {date()},
+              </p>
+              <p className="lg:w-2/3 mx-auto leading-relaxed text-base">
+                Click the above image to go back and enter new City
               </p>
             </div>
           </div>
