@@ -12,8 +12,16 @@ function App() {
   // main weather
   const [mainWether, setMainWether] = useState("");
 
+  // temperature
+  const [temp, setTemp] = useState("");
+
   const toggleWeather = () => {
     weatherModal ? setWeatherModal(false) : setWeatherModal(true);
+  };
+
+  const getTemperature = (kelvin) => {
+    const celsius = Math.round(kelvin - 273.15);
+    setTemp(celsius);
   };
 
   const fetchWeather = async (name) => {
@@ -23,12 +31,15 @@ function App() {
       console.log(res.status);
       if (res.status === 200) {
         setMainWether(res.data.weather[0].main);
+        getTemperature(res.data.main.temp);
       }
       toggleWeather();
     } catch (error) {
       console.log(error);
     }
   };
+
+  console.log(temp);
 
   return (
     <>
@@ -84,7 +95,7 @@ function App() {
             />
             <div className="flex flex-col text-center w-full">
               <h1 className="text-xl font-medium title-font mb-4 text-gray-900">
-                19 {mainWether}
+                {`${temp}\u00B0C `} {mainWether}
               </h1>
               <p className="lg:w-2/3 mx-auto leading-relaxed text-base">
                 tue 24. jan
