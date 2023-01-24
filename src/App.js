@@ -1,6 +1,10 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { apiEndpoint } from "./api";
+import { weatherGif } from "./api";
+import { toast, ToastContainer } from "react-toastify";
+import { toastOptions } from "./api";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   // weather modal
@@ -45,15 +49,22 @@ function App() {
   const fetchWeather = async (name) => {
     try {
       const res = await axios.get(`${apiEndpoint}${name}`);
-      console.log(res);
-      console.log(res.status);
+
       if (res.status === 200) {
         setMainWether(res.data.weather[0].main);
         getTemperature(res.data.main.temp);
       }
       toggleWeather();
     } catch (error) {
-      console.log(error);
+      toast.error(error.response.data.message, toastOptions);
+    }
+  };
+
+  const getLink = (obj) => {
+    for (const key in obj) {
+      if (key === mainWether) {
+        return obj[key];
+      }
     }
   };
 
@@ -61,6 +72,20 @@ function App() {
     <>
       {weatherModal && (
         <section className="text-gray-600 body-font">
+          <ToastContainer
+            position="top-right"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="light"
+          />
+          {/* Same as */}
+          <ToastContainer />
           <div className="container px-5 py-24 mx-auto">
             <div className="flex flex-col text-center w-full mb-12">
               <h1 className="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">
@@ -105,8 +130,8 @@ function App() {
           <div className="container px-5 py-24 mx-auto flex flex-wrap flex-col">
             <img
               className="xl:w-1/4 lg:w-1/3 md:w-1/2 w-2/3 block mx-auto mb-10 object-cover object-center rounded"
-              alt="hero"
-              src="https://media1.giphy.com/media/3o7btWO4T2Wp97lbgc/200.webp?cid=ecf05e47vhmmfzreqpf3uoxripq39o3ynnd7bxd6fv6lepwz&rid=200.webp&ct=g"
+              alt={mainWether}
+              src={getLink(weatherGif)}
               onClick={toggleWeather}
             />
             <div className="flex flex-col text-center w-full">
