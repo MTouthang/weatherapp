@@ -13,8 +13,8 @@ This project is a weather web application website build using OpenWeathermap API
 ## How it works
 - Enter the desire city name and click get weather button
 - Weather details of the enter city name will be shown
-- Click the weather gif display to back and enter new city name
+- Click on the weather gif display to back and enter new city name
 
 ## link of the project
-[openmapweatherapi](openmapweatherapi.netlify.app)
+[openmapweatherapi](https://openmapweatherapi.netlify.app/)
 
