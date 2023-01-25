@@ -8,7 +8,7 @@ export const weatherGif = {
   Rain: "https://media2.giphy.com/media/1ipRdxBacFXBjoov2f/giphy.gif?cid=ecf05e477wdroktfdsnsrq9dhez4vfuqgzrnfksaf3f8jkj8&rid=giphy.gif&ct=g",
   Snow: "https://media3.giphy.com/media/Q9BCtO4LZ8Maq9BAl6/giphy.gif?cid=ecf05e47lm1ukq13kuy9qdlbn3ba7jmj29zc34khh03c6iu1&rid=giphy.gif&ct=g",
   Clear:
-    "https://media2.giphy.com/media/rERrTOIaon3e4ak6uc/giphy.gif?cid=ecf05e47ccuhg5nloh6h962p2xuog5lp3ckyzg0o453r2vh4&rid=giphy.gif&ct=g",
+    "https://media1.giphy.com/media/1Fm7jEapE18HwS6fkT/giphy.gif?cid=ecf05e47eiim87bquxyzf4hhys2gip583w0u6w8259ft4jit&rid=giphy.gif&ct=g",
   Clouds:
     "https://media2.giphy.com/media/3o6wrm1JXSq5C9EtnG/giphy.gif?cid=ecf05e471l2uzcb8tdt4d0xzl6b5y3n7lh5jguw31c2w1cr5&rid=giphy.gif&ct=g",
   Mist: "https://media2.giphy.com/media/sZmv85pZ8NG60HU9QK/giphy.gif?cid=ecf05e4732c0karqyc7gi0mos3fhinm0jd66vrwsaafw18m4&rid=giphy.gif&ct=g",

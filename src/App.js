@@ -129,7 +129,7 @@ function App() {
         <section className="text-gray-600 body-font">
           <div className="container px-5 py-24 mx-auto flex flex-wrap flex-col">
             <img
-              className="xl:w-1/4 lg:w-1/3 md:w-1/2 w-2/3 block mx-auto mb-10 object-cover object-center rounded"
+              className="xl:w-1/4 lg:w-1/3 md:w-1/2 w-2/3 block mx-auto mb-10 object-cover object-center rounded cursor-pointer"
               alt={mainWether}
               src={getLink(weatherGif)}
               onClick={toggleWeather}
@@ -139,7 +139,7 @@ function App() {
                 {`${temp}\u00B0C `} {mainWether}
               </h1>
               <p className="lg:w-2/3 mx-auto leading-relaxed text-base">
-                {day()}, {cityName}
+                {day()}, {cityName.charAt(0).toUpperCase() + cityName.slice(1)}
               </p>
               <p className="lg:w-2/3 mx-auto leading-relaxed text-base">
                 {date()},
